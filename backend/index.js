@@ -7,7 +7,7 @@ const app = express();
 
 // ✅ Proper CORS setup for credentials
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://intervue-poll-qx2mc1a9s-mitviksihags-projects.vercel.app',
   credentials: true,
 }));
 
@@ -15,11 +15,12 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'https://intervue-poll-qx2mc1a9s-mitviksihags-projects.vercel.app'],
     methods: ['GET', 'POST'],
     credentials: true,
   }
 });
+
 
 // 🧠 In-memory state
 const state = {
